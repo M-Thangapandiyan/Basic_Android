@@ -1,7 +1,5 @@
 package Demo
 
-import kotlin.reflect.KProperty0
-
 //import java.util.Random
 //
 //class Array{
@@ -15,7 +13,7 @@ import kotlin.reflect.KProperty0
 //    }
 //}
 //
-// when example program
+//
 //fun main() {
 //    feedTheFish()
 //}
@@ -87,7 +85,6 @@ import kotlin.reflect.KProperty0
 //    println( decorations. filter {it.startsWith("ro")})
 //}
 
-//scope function(with,apply)
 
 //class Person(var name: String, var age: Int)
 //
@@ -115,8 +112,6 @@ import kotlin.reflect.KProperty0
 //    println("Updated name in person1: ${resultPerson1.name}")
 ////    println("Updated age in person1: ${resultPerson1.age}")
 //}
-
-//filters(asSequance())
 
 //fun main() {
 //    val decorations = mutableListOf("rock", "pagoda", "plastic plant", "alligator", "flowerpot")
@@ -151,8 +146,6 @@ import kotlin.reflect.KProperty0
 //    println("filtered: ${lazyMap2.toList()}")
 //}
 
-//example for create class
-
 //class Aquarium {
 //    var len: Int= 20
 //    var height : Int = 30
@@ -176,7 +169,7 @@ import kotlin.reflect.KProperty0
 //}
 
 
-//example for create  class with constructor
+
 
 //class Aquarium (len: Int = 20 , height : Int = 30){
 //var len: Int = len
@@ -201,9 +194,6 @@ import kotlin.reflect.KProperty0
 //    bulidAquarium()
 //}
 
-
-// example for open class
-
 //open class Animal(val species: String) {
 //    open fun makeSound() {
 //        println("The $species makes a generic sound.")
@@ -224,7 +214,6 @@ import kotlin.reflect.KProperty0
 //    dog.makeSound()
 //}
 
-// example for open modifier ()
 //open class ExampleOpenClass(val open : String) {
 //
 //    init {
@@ -241,173 +230,65 @@ import kotlin.reflect.KProperty0
 //    }
 //}
 //fun main(){
-//    val exampleopenclass = ExampleOpenClass("Overrided")
-//    exampleopenclass.openFunction()
+////    val exampleopenclass = ExampleOpenClass("Overrided")
+////    exampleopenclass.openFunction()
+////
+////    val exampleopenclass2 = ExampleOpenClass1()
+////    exampleopenclass2.openFunction()
 //
-//    val exampleopenclass2 = ExampleOpenClass1()
-//    exampleopenclass2.openFunction()
-//}
-
-//example for get and set function
-
-//fun main(){
 //    val s = VolumeCalculator(20,20,30)
 //    println(s.volume)
 //    println(s.a)
 //}
 
 
-//const val a = 10
-//
-//const val b =11
-//fun  main(){
-//    var c = a+ b
-//    println(c)
+//open class SingleInheritance(name: String, age:Int,salary:Int) {
+//    init {
+//        println("name is $name, age $age and earning salary $salary")
+//    }
 //}
-
-//public class A {
-//     fun someFunction() {
-//        println("Function in class A")
+//class Ios(name: String, age:Int,salary:Int) : SingleInheritance(name,age,salary) {
+//    fun ios(){
+//        println("ios developer")
 //    }
 //}
 //
-//class B : A() {
-//    fun someFunction1() {
-//        println("Function in class B")
-//    }
-//}
-
-
-
-
-//data class Person(val name: String, val age: Int)
-//
-//fun main() {
-//    val person1 = Person("Alice", 30)
-//    val person2 = Person("Alice", 30)
-//    val person3 = Person("Bob", 25)
-//
-//    println("person1 == person2: ${person1.equals(person2)}")
-//    println("person1 == person3: ${person1.equals(person3)}")
-//
-//    println("HashCode of person1: ${person1.hashCode()}")
-//    println("HashCode of person2: ${person2.hashCode()}")
-//    println("HashCode of person3: ${person3.hashCode()}")
-//    println("Custom toString(): ${person1.age.toString()}") // Explicit call to overridden toString()
-//
-//    val(name,age) = person2
-//
-//    println("name" + name + "age" + age)
-//    println("name = $name and age = $age")
-//
-//    val person5 = Person("Alice", 30)
-//
-//    val person6 = person1.copy(name = "j",age = 25)
-//    println("Original Person: $person5")
-//    println("Copied Person with modified age: $person6")
-//}
-
-//data class Book(
-//        val title: String,
-//        val author: String,
-//        val genres: ArrayList<String>
-//)
-//
-//fun main() {
-//
-//    val bookGenres = arrayListOf("Fiction", "Mystery", "Thriller")
-//
-//    val book = Book("The Da Vinci Code", "Dan Brown", bookGenres)
-//
-//    val (title, author, genres) = book
-//
-//    println("Book Title: $title")
-//    println("Author: $author")
-//    println("Genres: ${genres.joinToString(", ")}")
-//
-//    genres.add("Adventure")
-//
-//    println("\nModified Genres: ${genres.joinToString(", ")}")
-//}
-
-
-
-//sealed class Number{
-//    class Number1 (val num1: Int) : Number()
-//    class Number2(val num2 : Int) : Number()
-//}
-//
-//fun demo(number: Number) {
-//    when(number){
-//        is Number.Number1 -> println("this is ${number.num1}")
-//        is Number.Number2-> println("this is number2")
+//class android(name: String, age:Int, salary:Int) : SingleInheritance(name,age,salary){
+//    fun and(){
+//        println("android developer")
 //    }
 //}
 //
 //fun main() {
-//    val n = Number.Number1(2)
-//    val n1= Number.Number2(4)
-//    demo(n)
-//    demo(n1)
+//    val i = Ios("name", 23, 300)
+//    i.ios()
+//    val  a = android("name1", 22, 400 )
+//    a.and()
 //}
 
 
 
-// Example for ComponentN()
-
-
-//data class Number (val num1 : Int, val num2:Int, val num4: java.util.ArrayList<Int>)
+//val someNullableVariable: String = ""
 //
-//fun main(){
-//
-//    val num4 = arrayListOf(11,2,1)
-//
-//    val a = Number(2,2, num4)
-//
-//   val(num1,num2, num3) = a
-//
-//    println(num3)
-//}
-
-
-
-//val addition: (Int, Int) -> Int = { a, b -> a + b }
-//
-//fun higherOrder(addition: (Int, Int) -> Int): (Int, Int) -> Int {
-//    return ::multiply
-//}
-//
-//fun multiply(): (Int, Int) -> Int = { a, b -> a * b }
 //
 //fun main() {
-//    val result = higherOrder(addition)(3, 4)
-//    println("Result of multiplication: $result")
-//}
-
-
-//val addition: (Int, Int) -> Int = { a, b -> a + b }
+//    println(someNullableVariable.let { nonNullString ->
 //
-//fun higherOrder(addition: (Int, Int) -> Int): (Int, Int) -> Int {
-//    return { x, y -> addition(x, y) * 2 }
-//}
+//        val transformedResult = nonNullString.uppercase()
 //
-//fun main() {
-//    val result = higherOrder(addition)
-//    println("Result: $result")
+//        transformedResult
+//        "run"
+//    })
+//
 //}
 
-//Example for higher order function
 
-fun addition(a: Int, b: Int): Int {
-    return a+b
+
+var a : String? = "hello"
+
+fun main () {
+ var a1 = a?.substring(1,2)
+    println(a1)
 }
 
-fun higher() : ((Int,Int) -> Int) {
-    return ::addition
-}
 
-fun main() {
-    val multiply = higher()
-    val result = multiply(2,4)
-    println("The multiplication of two numbers is: $result")
-}
