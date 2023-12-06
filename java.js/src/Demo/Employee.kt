@@ -1,46 +1,68 @@
 package Demo
 
-data class Employee(var name: String?, var profession: String?)
+data class Employee(var name: String, var profession: String)
 
 val employees = mutableListOf<Employee>()
 
-    fun createEmployee(name: String?, profession: String?) {
-        val employee = Employee(name,profession)
-        employee.let {
-            employees.add(employee)
-            println("Employee $name created successfully with profession $profession")
-        }
-
+fun createEmployee(name: String, profession: String) {
+    val employee = Employee(name,profession)
+    employee.let {
+        employees.add(employee)
+        println("Employee $name created successfully with profession $profession")
     }
+}
 
-    fun updateEmployee() {
-            println("Enter the name to update")
-            val updateName = readString()
-            val e = employees.find { item -> item.equals(updateName)}
-            println("Enter the name to profession")
-            val updateProfession = readString()
-            e?.apply {
-                e.profession = updateProfession ?: e.profession
+fun updateEmployee() {
+    println("Enter the name to update")
+    val updateName = readString()
+    val e = employees.find { item -> item.equals(updateName)}
+    println("Enter the name to profession")
+    val updateProfession = readString()
+    e?.apply {
+        e.profession = updateProfession ?: e.profession
+    }
+    println("Employee $updateName updated successfully with new name $e")
+}
+
+fun deleteEmployee() {
+    println("Enter the name")
+    val name: String? = readString()
+    name.let {
+        val e = employees.find { item -> item.equals(name)}
+        employees.remove(e)
+        println("employee $name is removed")
+    }
+}
+
+fun sort () {
+    val a = employees.sortedBy { it.name }
+    println(a)
+}
+fun group () {
+    val b = employees.groupBy { it.name?.first()?.uppercase()}
+    println(b)
+}
+fun getEmployee() {
+    while (true) {
+        println("1. sort")
+        println("2. group")
+        println("3. exit")
+        println("enter the option")
+        val ch = Integer.valueOf(readLine())
+        when(ch){
+            1 -> sort()
+            2 -> group()
+            3 -> run {
+                print("exit")
+                return
             }
-            println("Employee $updateName updated successfully with new name $e")
-    }
-
-    fun deleteEmployee() {
-        println("Enter the name")
-        val name: String? = readString()
-        name.let {
-            val e = employees.find { item -> item.equals(name)}
-            employees.remove(e)
-            println("employee $name is removed")
         }
     }
+//      println(employees)
+}
 
-    fun getEmployee() {
-      println(employees)
-    }
-
-fun readString() : String? {
-    return readLine()
+fun readString() : String {
+    return readLine() ?: ""
 }
 
 
@@ -57,18 +79,18 @@ fun main() {
         when (choice) {
             1 -> {
                 println("Enter the name")
-                val name: String? = readString()
+                val name: String = readString()
                 println("Enter the profession")
-                val profession: String? = readString()
+                val profession: String = readString()
                 createEmployee(name, profession)
             }
             2 -> updateEmployee()
             3 -> deleteEmployee()
             4 -> getEmployee()
             5 ->run {
-              println("exited")
+                println("exited")
                 return
-           }
+            }
 //            5 -> {
 //                println("Exiting program...")
 //                break
