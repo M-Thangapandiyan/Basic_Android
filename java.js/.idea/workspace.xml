@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99280642-2818-46d4-b573-576953eb6f14" name="Changes" comment="" />
+    <list default="true" id="99280642-2818-46d4-b573-576953eb6f14" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,15 +39,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "kotlinbasics",
-    "last_opened_file_path": "/home/ubuntu/Documents/Thangapandi/Projects/Basic_Android",
-    "onboarding.tips.debug.path": "/home/ubuntu/IdeaProjects/java.js/src/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kotlinbasics&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ubuntu/Documents/Thangapandi/Projects/Basic_Android&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/ubuntu/IdeaProjects/java.js/src/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.ExampleQueue">
     <configuration name="ExampleMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Demo.ExampleMap" />
@@ -62,7 +64,6 @@
     </configuration>
     <configuration name="ExampleQueue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Demo.ExampleQueue" />
-      <module name="java.js" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Demo.*" />
@@ -102,9 +103,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ExampleQueue" />
         <item itemvalue="Kotlin.BasicsKotlinKt" />
         <item itemvalue="Kotlin.CalculatorKt" />
-        <item itemvalue="Application.ExampleQueue" />
         <item itemvalue="Application.example" />
         <item itemvalue="Application.ExampleMap" />
       </list>
