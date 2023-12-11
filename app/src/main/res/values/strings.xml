@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AndroidBasics</string>
+    <string name="edit_text_hint"><font size="15">Enter the last name</font></string>
+</resources>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/l"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/sp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Form"
+        android:textColor="@color/green"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:padding="8dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name : "
+            android:textSize="20sp" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint=" Enter the name"
+            android:inputType="textCapSentences"
+            android:layout_marginRight="30dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:textAlignment="gravity"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age : "
+            android:textSize="20sp"
+            >
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <EditText
+                android:id="@+id/age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter the age"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textSize="20dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="must be a number type"
+                android:padding="10dp"
+                android:textStyle="bold"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="show"
+        android:background="@color/black"
+        >
+    </Button>
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "details"
+        android:textSize="20sp">
+    </TextView>
+
+</LinearLayout>
