@@ -14,7 +14,6 @@ class Second_From : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second_from)
         receiveText = findViewById<TextView>(R.id.second_form_textview_id)
-
         val intent = intent
         val str = intent.getStringExtra("message_key")
         receiveText.text = str
