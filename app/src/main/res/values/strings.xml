@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">AndroidBasics</string>
     <string name="edit_text_hint"><font size="15">Enter the last name</font></string>
+    <string name="title_activity_">Activity</string>
+    <string name="next">Next</string>
+    <string name="title">My First Application</string>
+    <string name="description">Hello first fragment</string>
+    <string name="mailImage">mail image</string>
+    <string name="random">RANDOM</string>
+    <string name="count">COUNT</string>
+    <string name="toast">TOAST</string>
 </resources>

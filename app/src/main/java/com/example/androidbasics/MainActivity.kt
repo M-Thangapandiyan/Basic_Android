@@ -14,14 +14,12 @@ import android.widget.TextView
 
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d("===================>","OnCreate")
-        initUI()
         val editText = findViewById<EditText>(R.id.firstName)
-
         val editText3 = findViewById<EditText>(R.id.age)
         val editText4 = findViewById<TextView>(R.id.info)
         val showButton = findViewById<Button>(R.id.button)
@@ -31,10 +29,6 @@ class MainActivity : AppCompatActivity() {
             val result = "Name = $firstName \nAge = $age"
             editText4.text = result
         }
-    }
-
-    private fun initUI() {
-        TODO("Not yet implemented")
     }
 
     override fun onStart() {
