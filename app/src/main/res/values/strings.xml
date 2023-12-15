@@ -1,12 +1,14 @@
 <resources>
-    <string name="app_name">AndroidBasics</string>
-    <string name="edit_text_hint"><font size="15">Enter the last name</font></string>
-    <string name="title_activity_">Activity</string>
-    <string name="next">Next</string>
-    <string name="title">My First Application</string>
-    <string name="description">Hello first fragment</string>
-    <string name="mailImage">mail image</string>
-    <string name="random">RANDOM</string>
-    <string name="count">COUNT</string>
-    <string name="toast">TOAST</string>
+    <string name="app_name">ConstraintBasics</string>
+    <string name="name_hint"><font size="15">Enter the name</font></string>
+    <string name="Mail">Mail : </string>
+    <string name="umber">number : </string>
+    <string name="address">address : </string>
+    <string name="pincode">pin-code : </string>
+        <string name="Name">Name</string>
+        <string name="Phone">Phone</string>
+        <string name="mail">Email</string>
+        <string name="Address">Address</string>
+        <string name="pinCode">Pin Code</string>
+        <string name="submit">Submit</string>
 </resources>

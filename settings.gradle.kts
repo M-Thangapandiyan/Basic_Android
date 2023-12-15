@@ -13,5 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AndroidBasics"
+rootProject.name = "ConstraintBasics"
 include(":app")
+ 

@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    tools:context=".FormActivity">
     <TextView
         android:id="@+id/nameLabel"
         android:layout_width="0dp"
@@ -20,7 +20,7 @@
         android:id="@+id/editName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/name_int"
+        android:hint="@string/name_hint"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
         android:text="@string/Mail"
         android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPhone"
         />
@@ -79,7 +79,7 @@
         android:text="@string/Address"
         android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editMail"
         />
@@ -102,7 +102,7 @@
         android:text="@string/pinCode"
         android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editAddress"
         />
@@ -126,8 +126,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editPinCode"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-   >
+        >
     </Button>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
