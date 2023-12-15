@@ -8,7 +8,6 @@ import android.widget.EditText
 import android.widget.Toast
 
 class FormActivity : AppCompatActivity() {
-    var nameTv: String = ""
 
     var isAllFieldsChecked = false
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,15 +18,14 @@ class FormActivity : AppCompatActivity() {
         val etMail = findViewById<EditText>(R.id.editMail)
         val etAddress = findViewById<EditText>(R.id.editAddress)
         val etPinCode = findViewById<EditText>(R.id.editPinCode)
-
-        nameTv = etName.text.toString()
-        val phoneNumber = etPhoneNumber.text.toString()
-        val mail = etMail.text.toString()
-        val address = etAddress.text.toString()
-        val pinCode = etPinCode.text.toString()
         val btnSubmit = findViewById<Button>(R.id.submitButton)
         btnSubmit.setOnClickListener {
-            submitForm(nameTv, phoneNumber, mail, address, pinCode)
+            val name = etName.text.toString()
+            val phoneNumber = etPhoneNumber.text.toString()
+            val mail = etMail.text.toString()
+            val address = etAddress.text.toString()
+            val pinCode = etPinCode.text.toString()
+            submitForm(name, phoneNumber, mail, address, pinCode)
         }
     }
 
@@ -39,7 +37,7 @@ class FormActivity : AppCompatActivity() {
         pinCode: String
     ) {
 
-        isAllFieldsChecked = checkAllFields(name, phoneNumber, mail, address, pinCode)
+        isAllFieldsChecked = checkAllFields(name,phoneNumber,mail,address,pinCode)
 
         if (isAllFieldsChecked) {
             val bundle = Bundle()
@@ -66,36 +64,22 @@ class FormActivity : AppCompatActivity() {
         pinCode: String
     ): Boolean {
 
-        if (nameTv.isEmpty()) {
+        if (name.isEmpty()) {
             errorMessage("Please fill name fields")
             return false
         } else if (phoneNumber.isEmpty()) {
             errorMessage("Please fill phone number the fields")
             return false
-        } else if (pinCode.isEmpty()) {
+        } else if (mail.isEmpty()) {
             errorMessage("Please fill pin-code the fields")
             return false
         } else if (address.isEmpty()) {
             errorMessage("Please fill address the fields")
             return false
-        } else if (mail.isEmpty()) {
+        } else if (pinCode.isEmpty()) {
             errorMessage("Please fill mail the fields")
             return false
         }
         return true
     }
 }
-
-//        if (name.isNotEmpty() && phoneNumber.isNotEmpty() && pinCode.isNotEmpty() && address.isNotEmpty() && mail.isNotEmpty()) {
-//            val bundle = Bundle()
-//            bundle.putString("name", name)
-//            bundle.putString("phoneNumber", phoneNumber)
-//            bundle.putString("mail", mail)
-//            bundle.putString("address", address)
-//            bundle.putString("pinCode", pinCode)
-//            val intent = Intent(this, DisplayFormActivity::class.java)
-//            intent.putExtra("data", bundle)
-//            startActivity(intent)
-//        } else {
-//            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
-//        }
