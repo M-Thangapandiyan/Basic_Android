@@ -5,10 +5,10 @@
     <string name="umber">number : </string>
     <string name="address">address : </string>
     <string name="pincode">pin-code : </string>
-        <string name="Name">Name</string>
-        <string name="Phone">Phone</string>
-        <string name="mail">Email</string>
-        <string name="Address">Address</string>
-        <string name="pinCode">Pin Code</string>
-        <string name="submit">Submit</string>
+    <string name="Name">Name</string>
+    <string name="Phone">Phone</string>
+    <string name="mail">Email</string>
+    <string name="Address">Address</string>
+    <string name="pinCode">Pin Code</string>
+    <string name="submit">Submit</string>
 </resources>
