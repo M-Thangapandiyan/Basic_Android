@@ -14,7 +14,7 @@ class DisplayFormActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
        setContentView(R.layout.activity_display_form)
-       Log.d("displayForm", "ActivityB")
+       Log.d("activityB","activityB on create")
        receiveText = findViewById(R.id.display_form_textview_id1)
        val bundle = intent.extras?.getBundle("data")
        val name = bundle?.getString("name")
@@ -41,6 +41,13 @@ class DisplayFormActivity : AppCompatActivity() {
 
        btnActivity.setOnClickListener {
            val intent = Intent(this, DisplayFormActivity::class.java)
+           startActivity(intent)
+       }
+
+       val btnButton: Button = findViewById(R.id.recyclerButton)
+
+       btnButton.setOnClickListener {
+           val intent = Intent(this, RecyclerViewActivity::class.java)
            startActivity(intent)
        }
    }
