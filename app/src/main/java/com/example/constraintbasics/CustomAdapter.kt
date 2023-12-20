@@ -1,5 +1,6 @@
 package com.example.constraintbasics
 
+import android.service.autofill.Dataset
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-
-class CustomAdapter(private val dataSet: Array<String>) :
+class CustomAdapter(private val dataset: Array<String>) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
         var bindViewHolderCount = 0
         var createViewHolderCount = 0
@@ -25,7 +25,7 @@ class CustomAdapter(private val dataSet: Array<String>) :
         return ViewHolder(view)
     }
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.textView.text = "value Of $position"
+        viewHolder.textView.text = "value of $position"
         bindViewHolderCount++
         Log.d("onBindViewHolder","onBindViewHolder $bindViewHolderCount")
     }

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmployeeDetailsActivity">
+
+    <TextView
+        android:id="@+id/nameLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Name"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/name_hint"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameLabel" />
+
+    <TextView
+        android:id="@+id/phoneLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Phone"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editName"
+        />
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/Phone"
+        android:inputType="number"
+        android:maxLength="10"
+        app:layout_constraintTop_toBottomOf="@+id/phoneLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/mailLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Mail"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPhone"
+        />
+
+    <EditText
+        android:id="@+id/editMail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/mail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/mailLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/addressLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Address"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMail"
+        />
+
+    <EditText
+        android:id="@+id/editAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/address"
+        android:inputType="textMultiLine"
+        app:layout_constraintTop_toBottomOf="@+id/addressLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/pin_codeLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/pinCode"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editAddress"
+        />
+
+    <EditText
+        android:id="@+id/editPinCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/pincode"
+        android:inputType="number"
+        android:maxLength="6"
+        app:layout_constraintTop_toBottomOf="@+id/pin_codeLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        app:layout_constraintTop_toBottomOf="@+id/editPinCode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+    </Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
