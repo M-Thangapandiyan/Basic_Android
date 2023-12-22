@@ -25,9 +25,6 @@
             android:name=".EmployeeDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".CustomAdapter"
-            android:exported="false" />
-        <activity
             android:name=".EmployeeActivity"
             android:exported="true"
             android:launchMode="standard">

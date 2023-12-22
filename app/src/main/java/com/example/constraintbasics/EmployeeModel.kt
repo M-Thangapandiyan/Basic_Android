@@ -6,12 +6,11 @@ import android.os.Message
 import java.io.Serializable
 
 data class EmployeeModel (
-    val name: String?= null,
-    val phoneNumber: String?= null,
-    val mail: String?= null,
-    val address: String?= null,
-    val pinCode: String?= null,
-    val message: String = "Employee Not Found"
+    val name: String,
+    val phoneNumber: String,
+    val mail: String,
+    val address: String,
+    val pinCode: String,
 )
 
 

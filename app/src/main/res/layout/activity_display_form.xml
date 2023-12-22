@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".DisplayFormActivity">
 
+
+
     <TextView
         android:id="@+id/display_form_textview_id1"
         android:layout_width="0dp"

@@ -15,7 +15,7 @@ class CustomAdapter(private val dataset: Array<String>) :
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView
         init {
-            textView = view.findViewById(R.id.textView)
+            textView = view.findViewById(R.id.showAddress)
         }
     }
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
