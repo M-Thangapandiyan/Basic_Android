@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.ConstraintBasics" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.CarParkingApplication" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.ConstraintBasics" parent="Base.Theme.ConstraintBasics" />
+    <style name="Theme.CarParkingApplication" parent="Base.Theme.CarParkingApplication" />
 </resources>

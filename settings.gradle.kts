@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ConstraintBasics"
+rootProject.name = "CarParkingApplication"
 include(":app")
  

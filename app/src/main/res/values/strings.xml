@@ -1,14 +1,3 @@
 <resources>
-    <string name="app_name">ConstraintBasics</string>
-    <string name="name_hint"><font size="15">Enter the name</font></string>
-    <string name="Mail">Mail : </string>
-    <string name="umber">number : </string>
-    <string name="address">address : </string>
-    <string name="pincode">pin-code : </string>
-    <string name="Name">Name</string>
-    <string name="Phone">Phone</string>
-    <string name="mail">Email</string>
-    <string name="Address">Address</string>
-    <string name="pinCode">Pin Code</string>
-    <string name="submit">Submit</string>
+    <string name="app_name">CarParkingApplication</string>
 </resources>
