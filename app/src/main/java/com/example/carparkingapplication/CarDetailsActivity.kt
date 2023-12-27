@@ -1,35 +1,27 @@
 package com.example.carparkingapplication
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.google.android.material.textfield.TextInputLayout
 
-class CarDetails : AppCompatActivity() {
+class CarDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_car_details)
-
         val btnSubmit: Button = findViewById(R.id.submitButton)
+        val tvCarNo = findViewById<TextInputLayout>(R.id.tvCarNo)
+        val tvPhoneNumber = findViewById<TextInputLayout>(R.id.tvPhoneNumber)
         btnSubmit.setOnClickListener {
-            val etCarNo = findViewById<TextInputLayout>(R.id.tvCarNo)
-            val etPhoneNumber = findViewById<TextInputLayout>(R.id.tvPhoneNumber)
-            val etSlotNo = findViewById<TextInputLayout>(R.id.tvslotno)
-
-            val carNo = etCarNo.editText?.text.toString()
-            val phoneNumber = etPhoneNumber.editText?.text.toString()
-            val slotNo = etSlotNo.editText?.text.toString()
-
-            val intent = Intent(this, HomePage::class.java)
+            val carNo = tvCarNo.editText?.text.toString()
+            val phoneNumber = tvPhoneNumber.editText?.text.toString()
+            val intent = Intent(this, HomePageActivity::class.java)
             intent.putExtra("carNo", carNo)
             intent.putExtra("phoneNumber", phoneNumber)
-            intent.putExtra("slotNo", slotNo)
-
-            setResult(RESULT_OK, intent)
+            setResult(Activity.RESULT_OK, intent)
             finish()
         }
     }
 }
-
-

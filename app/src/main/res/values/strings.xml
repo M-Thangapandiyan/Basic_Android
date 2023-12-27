@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CarParkingApplication</string>
+    <string name="submit">Submit</string>
+    <string name="carNO">CarNO</string>
+    <string name="slotNO">SlotNo</string>
+    <string name="phoneNumber">PhoneNumber</string>
+    <string name="title">Car Parking Details</string>
+    <string name="checkIN">CheckIn</string>
+    <string name="checkOut">CheckOut</string>
 </resources>
