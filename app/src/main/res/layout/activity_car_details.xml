@@ -4,37 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CarDetails">
+    tools:context=".CarDetailsActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/carDetailsBar"
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        android:layout_width="@dimen/zeroDp"
+        android:layout_width="@dimen/zero_dp"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:title="Car Parking Details" />
+        app:title="@string/title" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/beginGuideline"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero_dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="10dp" />
+        app:layout_constraintGuide_begin="@dimen/ten_dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/endGuideline"
-        android:layout_width="@dimen/zeroDp"
+        android:layout_width="@dimen/zero_dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="10dp" />
+        app:layout_constraintGuide_end="@dimen/ten_dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tvCarNo"
-        android:layout_width="@dimen/zeroDp"
+        android:layout_width="@dimen/zero_dp"
         android:layout_height="wrap_content"
-        android:padding="15sp"
+        android:padding="@dimen/fifteen_sp"
         app:layout_constraintTop_toBottomOf="@+id/carDetailsBar"
         app:layout_constraintStart_toStartOf="@+id/beginGuideline"
         app:layout_constraintEnd_toEndOf="@+id/endGuideline">
@@ -43,15 +43,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="@string/carNO" />
+            android:hint="@string/car_no" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tvPhoneNumber"
-        android:layout_width="@dimen/zeroDp"
+        android:layout_width="@dimen/zero_dp"
         android:layout_height="wrap_content"
-        android:padding="15sp"
+        android:padding="@dimen/fifteen_sp"
         app:layout_constraintTop_toBottomOf="@+id/tvCarNo"
         app:layout_constraintStart_toStartOf="@+id/beginGuideline"
         app:layout_constraintEnd_toEndOf="@+id/endGuideline">
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:maxLength="10"
-            android:hint="@string/phoneNumber" />
+            android:hint="@string/phone_number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,9 +69,8 @@
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
+        android:text="@string/check_in"
         app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumber"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/beginGuideline"
         app:layout_constraintEnd_toEndOf="@+id/endGuideline">
 
