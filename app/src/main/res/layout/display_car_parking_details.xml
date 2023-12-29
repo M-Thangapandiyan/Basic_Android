@@ -26,7 +26,7 @@
             app:layout_constraintGuide_end="@dimen/ten_dp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/car_no"
+            android:id="@+id/carNo"
             android:paddingTop="@dimen/five_dp"
             android:layout_width="@dimen/zero_dp"
             android:layout_height="wrap_content"
@@ -42,11 +42,11 @@
             android:layout_width="@dimen/zero_dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/begin_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/car_no">
+            app:layout_constraintTop_toBottomOf="@+id/carNo">
         </androidx.appcompat.widget.AppCompatTextView>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/slot_number"
+            android:id="@+id/slotNumber"
             android:paddingTop="@dimen/five_dp"
             android:text="@string/slot_no"
             android:layout_width="@dimen/zero_dp"
@@ -63,11 +63,12 @@
             android:layout_width="@dimen/zero_dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/begin_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/slot_number">
+            app:layout_constraintTop_toBottomOf="@+id/slotNumber">
 
         </androidx.appcompat.widget.AppCompatTextView>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/checkOut"
             android:layout_width="@dimen/zero_dp"
             android:layout_height="wrap_content"
             android:text="@string/check_out"

@@ -20,15 +20,17 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
-        android:layout_width="@dimen/zero_dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/search_bar"
         android:textAppearance="@color/black"
+        android:layout_margin="@dimen/ten_dp"
         app:actionViewClass="android.widget.SearchView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/carDetailsTitle"
         app:showAsAction="ifRoom|withText" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -37,7 +39,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
         />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating_action_button"
         android:layout_width="wrap_content"
