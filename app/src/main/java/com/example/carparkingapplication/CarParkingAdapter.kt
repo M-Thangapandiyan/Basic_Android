@@ -34,14 +34,21 @@ class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : 
             holder.slotNumber.text = "${Constants.CAR_SLOT_NO}${model.slotNumber}"
             holder.checkInTime.text = "${Constants.CHECK_IN_TIME}${model.checkIn}"
             holder.checkOut.setOnClickListener{
+                carParkingInterface.onClick(carParkingList[position])
                 carParkingInterface.onClick(model)
             }
         }
     }
-    fun submitData(carParkingModel: CarParkingModel) {
+    fun addData(carParkingModel: CarParkingModel) {
         carParkingList.add(carParkingModel)
         filter(Constants.EMPTY_STRING)
     }
+
+//    fun removeCar(car: CarParkingModel) {
+//        val index = carParkingList.indexOf(car)
+//        carParkingList.removeAt(index)
+//        notifyItemInserted(index)
+//    }
 
      fun filter(query: String) {
             filteredList.clear()

@@ -34,10 +34,13 @@ class HomePageActivity : AppCompatActivity() {
         override fun onClick(view: CarParkingModel) {
             val carParkingDialogFragment = CarParkingDialogFragment()
             val bundle = Bundle()
-            bundle.putString("carParkingDetails", view.carNo)
+            bundle.putString(Constants.CAR_NO, view.carNo)
+            bundle.putString(Constants.USER_PHONE_NUMBER, view.phoneNumber)
+            bundle.putString(Constants.CHECK_IN, view.checkIn)
+            bundle.putString(Constants.SLOT_NO, view.slotNumber.toString())
             carParkingDialogFragment.arguments =  bundle
             carParkingDialogFragment.show(supportFragmentManager, "test")
-
+//            carParkingAdapter.removeCar(view)
         }
     }
     private fun searchListeners() {
@@ -79,11 +82,11 @@ class HomePageActivity : AppCompatActivity() {
                     slotNo =  carParkingList.size + 1
                     checkIn = getCurrentDateTime()
                     val carParkingModel = CarParkingModel(carNo, phoneNumber, slotNo, checkIn)
-                    carParkingAdapter.submitData(carParkingModel)
-
+                    carParkingAdapter.addData(carParkingModel)
                 }
             }
         }
+
         private fun getCurrentDateTime(): String {
         val dateTime = SimpleDateFormat(Constants.DATE_PATTERN, Locale.getDefault())
         return dateTime.format(Date())

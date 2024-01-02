@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.DialogFragment
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class CarParkingDialogFragment : DialogFragment() {
 
@@ -27,9 +30,15 @@ class CarParkingDialogFragment : DialogFragment() {
         tvPhoneNumber = view.findViewById(R.id.phoneNumber)
         tvSlotNo = view.findViewById(R.id.slotNumber)
         tvCheckInTime = view.findViewById(R.id.checkInTime)
-        Bundle()
-        val carNo = arguments?.getString(Constants.CAR_PARKING_DETAILS)
-        tvCarNo.text = carNo
+        btnOk = view.findViewById(R.id.ok)
+        val carNo = arguments?.getString(Constants.CAR_NO)
+        val phoneNumber = arguments?.getString(Constants.USER_PHONE_NUMBER)
+        val checkIn =   arguments?.getString(Constants.CHECK_IN)
+        val slotNumber =  arguments?.getString(Constants.SLOT_NO)
+        tvCarNo.text = "${Constants.CAR_NUMBER}${carNo}"
+        tvPhoneNumber.text = "${Constants.USER_PHONE_NUMBER}${phoneNumber}"
+        tvSlotNo.text = "${Constants.CAR_SLOT_NO}${slotNumber}"
+        tvCheckInTime.text = "${Constants.CHECK_IN_TIME}${checkIn}"
         btnOk.setOnClickListener{
             dismiss()
         }
@@ -37,6 +46,23 @@ class CarParkingDialogFragment : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.setLayout(600,600)
+        dialog?.window?.setLayout(900,900)
     }
+
+//    fun calculate(){
+//        val dateFormat = SimpleDateFormat(Constants.DATE_PATTERN, Locale.getDefault())
+//        val startDate = dateFormat.parse(tvCheckInTime.toString())
+//        val endDate = dateFormat.parse(getCurrentDateTime())
+//        val difference = endDate.time - startDate.time
+//        val seconds = difference / 1000
+//        val minutes = seconds / 60
+//        val hours = minutes / 60
+//        val days = hours / 24
+//    }
+
+//    private fun getCurrentDateTime(): String {
+//        val dateTime = SimpleDateFormat(Constants.DATE_PATTERN, Locale.getDefault())
+//        return dateTime.format(Date())
+//    }
+
 }
