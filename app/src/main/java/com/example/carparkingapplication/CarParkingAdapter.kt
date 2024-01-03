@@ -6,6 +6,9 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : RecyclerView.Adapter<CarParkingAdapter.ViewHolder>() {
 
@@ -32,23 +35,24 @@ class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : 
             holder.tvCarNo.text = "${Constants.CAR_NUMBER}${model.carNo}"
             holder.phoneNumber.text = "${Constants.USER_PHONE_NUMBER}${model.phoneNumber}"
             holder.slotNumber.text = "${Constants.CAR_SLOT_NO}${model.slotNumber}"
-            holder.checkInTime.text = "${Constants.CHECK_IN_TIME}${model.checkIn}"
+            val date = getCurrentDateTime(model.checkIn)
+            holder.checkInTime.text = "${Constants.CHECK_IN_TIME}${date}"
             holder.checkOut.setOnClickListener{
                 carParkingInterface.onClick(carParkingList[position])
                 carParkingInterface.onClick(model)
             }
         }
     }
+
+    private fun getCurrentDateTime(checkIn : Long): String {
+        val dateTime = SimpleDateFormat(Constants.DATE_PATTERN, Locale.getDefault())
+        return dateTime.format(Date(checkIn))
+    }
+
     fun addData(carParkingModel: CarParkingModel) {
         carParkingList.add(carParkingModel)
         filter(Constants.EMPTY_STRING)
     }
-
-//    fun removeCar(car: CarParkingModel) {
-//        val index = carParkingList.indexOf(car)
-//        carParkingList.removeAt(index)
-//        notifyItemInserted(index)
-//    }
 
      fun filter(query: String) {
             filteredList.clear()

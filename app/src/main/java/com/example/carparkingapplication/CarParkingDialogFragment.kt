@@ -1,6 +1,5 @@
 package com.example.carparkingapplication
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +18,8 @@ class CarParkingDialogFragment : DialogFragment() {
     private lateinit var tvSlotNo : AppCompatTextView
     private lateinit var tvCheckInTime : AppCompatTextView
     private lateinit var btnOk : AppCompatButton
-
+    private lateinit var priceCalculation : AppCompatTextView
+    private var checkIn : Long = 0
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.activity_car_parking_dialog_fragment, container, false)
     }
@@ -31,14 +31,21 @@ class CarParkingDialogFragment : DialogFragment() {
         tvSlotNo = view.findViewById(R.id.slotNumber)
         tvCheckInTime = view.findViewById(R.id.checkInTime)
         btnOk = view.findViewById(R.id.ok)
+        priceCalculation = view.findViewById(R.id.priceCalculation)
+        initView()
+    }
+
+    private fun initView(){
         val carNo = arguments?.getString(Constants.CAR_NO)
         val phoneNumber = arguments?.getString(Constants.USER_PHONE_NUMBER)
-        val checkIn =   arguments?.getString(Constants.CHECK_IN)
+        val checkIn = arguments?.getLong(Constants.CHECK_IN)
         val slotNumber =  arguments?.getString(Constants.SLOT_NO)
         tvCarNo.text = "${Constants.CAR_NUMBER}${carNo}"
         tvPhoneNumber.text = "${Constants.USER_PHONE_NUMBER}${phoneNumber}"
         tvSlotNo.text = "${Constants.CAR_SLOT_NO}${slotNumber}"
-        tvCheckInTime.text = "${Constants.CHECK_IN_TIME}${checkIn}"
+        val checkInDateTime = getCurrentDateTime(checkIn)
+        tvCheckInTime.text = "${Constants.CHECK_IN_TIME}${checkInDateTime}"
+        priceCalculation.text = "${Constants.CAR_PARKING_AMOUNT}${calculate().toString()}"
         btnOk.setOnClickListener{
             dismiss()
         }
@@ -46,23 +53,22 @@ class CarParkingDialogFragment : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.setLayout(900,900)
+        dialog?.window?.setLayout(800,600)
     }
 
-//    fun calculate(){
-//        val dateFormat = SimpleDateFormat(Constants.DATE_PATTERN, Locale.getDefault())
-//        val startDate = dateFormat.parse(tvCheckInTime.toString())
-//        val endDate = dateFormat.parse(getCurrentDateTime())
-//        val difference = endDate.time - startDate.time
-//        val seconds = difference / 1000
-//        val minutes = seconds / 60
-//        val hours = minutes / 60
-//        val days = hours / 24
-//    }
-
-//    private fun getCurrentDateTime(): String {
-//        val dateTime = SimpleDateFormat(Constants.DATE_PATTERN, Locale.getDefault())
-//        return dateTime.format(Date())
-//    }
-
+    private fun calculate(): Int {
+        val ratePerHour = 50
+        val timeDifference = System.currentTimeMillis() - checkIn
+        val parkingDurationInHours = timeDifference / (1000 * 60)
+        val parkingDuration = getHours(parkingDurationInHours)
+        return ratePerHour * parkingDuration.toInt()
+    }
+    private fun getHours(parkingDurationInMillis: Long): String {
+        val dateTime = SimpleDateFormat(Constants.HOURS_PATTERN, Locale.getDefault())
+        return dateTime.format(parkingDurationInMillis)
+    }
+    private fun getCurrentDateTime(checkIn: Long?): String {
+        val dateTime = SimpleDateFormat(Constants.DATE_PATTERN, Locale.getDefault())
+        return dateTime.format(checkIn?.let { Date(it) })
+    }
 }

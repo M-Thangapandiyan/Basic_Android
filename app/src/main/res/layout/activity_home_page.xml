@@ -31,7 +31,6 @@
         app:layout_constraintTop_toBottomOf="@id/carDetailsTitle"
         app:showAsAction="ifRoom|withText" />
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

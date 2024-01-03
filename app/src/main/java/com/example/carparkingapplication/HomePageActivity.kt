@@ -9,9 +9,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 class HomePageActivity : AppCompatActivity() {
 
@@ -22,7 +19,7 @@ class HomePageActivity : AppCompatActivity() {
     private lateinit var carNo: String
     private lateinit var phoneNumber : String
     private var slotNo : Int = 0
-    private lateinit var checkIn : String
+    private var checkIn : Long = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
@@ -36,11 +33,10 @@ class HomePageActivity : AppCompatActivity() {
             val bundle = Bundle()
             bundle.putString(Constants.CAR_NO, view.carNo)
             bundle.putString(Constants.USER_PHONE_NUMBER, view.phoneNumber)
-            bundle.putString(Constants.CHECK_IN, view.checkIn)
             bundle.putString(Constants.SLOT_NO, view.slotNumber.toString())
+            bundle.putLong(Constants.CHECK_IN,view.checkIn)
             carParkingDialogFragment.arguments =  bundle
-            carParkingDialogFragment.show(supportFragmentManager, "test")
-//            carParkingAdapter.removeCar(view)
+            carParkingDialogFragment.show(supportFragmentManager, Constants.CAR_PARKING_DETAILS)
         }
     }
     private fun searchListeners() {
@@ -79,17 +75,26 @@ class HomePageActivity : AppCompatActivity() {
                 data?.let { data ->
                     carNo = data.getStringExtra(Constants.CAR_NO) ?: Constants.EMPTY_STRING
                     phoneNumber = data.getStringExtra(Constants.PHONE_NUMBER) ?: Constants.EMPTY_STRING
-                    slotNo =  carParkingList.size + 1
-                    checkIn = getCurrentDateTime()
+                    slotNo =  carParkingList.size +1
+                    checkIn = System.currentTimeMillis()
                     val carParkingModel = CarParkingModel(carNo, phoneNumber, slotNo, checkIn)
                     carParkingAdapter.addData(carParkingModel)
                 }
             }
         }
 
-        private fun getCurrentDateTime(): String {
-        val dateTime = SimpleDateFormat(Constants.DATE_PATTERN, Locale.getDefault())
-        return dateTime.format(Date())
-    }
+//        fun removeCar(car: CarParkingModel) {
+//        val index = carParkingList.indexOf(car)
+//        carParkingList.removeAt(index)
+//    }
+
+    //    private fun removeCar(slotNumber: String?) {
+//        val carToRemove = carParkingList.find { it.slotNumber == slotNumber }
+//        carToRemove?.let {
+//            carParkingList.remove(it)
+//            carParkingAdapter.notifyDataSetChanged()
+//        }
+//    }
+
 }
 
