@@ -27,6 +27,7 @@ class CarDetailsActivity : AppCompatActivity() {
             submitForm(carNo,phoneNumber)
         }
     }
+
     private fun submitForm(carNo: String, phoneNumber: String, ) {
         isAllFieldsChecked = checkAllFields(carNo,phoneNumber)
         if (isAllFieldsChecked) {

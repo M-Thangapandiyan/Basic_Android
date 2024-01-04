@@ -1,8 +1,8 @@
 package com.example.carparkingapplication
 
-data class CarParkingModel (
+data class CarParkingModel(
     val carNo: String,
     val phoneNumber: String,
-    val slotNumber : Int,
-    val checkIn : Long
+    var slotNumber: Int,
+    val checkIn: Long
 )

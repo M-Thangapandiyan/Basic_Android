@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class HomePageActivity : AppCompatActivity() {
+class HomePageActivity : AppCompatActivity(), CarParkingDialogFragment.CarParkingDialogListener {
 
     private lateinit var carParkingAdapter: CarParkingAdapter
     private lateinit var btnSubmit: FloatingActionButton
@@ -24,7 +24,6 @@ class HomePageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
         initView()
-        searchListeners()
     }
 
     private val carParkingInterface : CarParkingInterface = object: CarParkingInterface {
@@ -33,25 +32,11 @@ class HomePageActivity : AppCompatActivity() {
             val bundle = Bundle()
             bundle.putString(Constants.CAR_NO, view.carNo)
             bundle.putString(Constants.USER_PHONE_NUMBER, view.phoneNumber)
-            bundle.putString(Constants.SLOT_NO, view.slotNumber.toString())
+            bundle.putInt(Constants.SLOT_NO, view.slotNumber)
             bundle.putLong(Constants.CHECK_IN,view.checkIn)
             carParkingDialogFragment.arguments =  bundle
             carParkingDialogFragment.show(supportFragmentManager, Constants.CAR_PARKING_DETAILS)
         }
-    }
-    private fun searchListeners() {
-        search = findViewById(R.id.searchView)
-        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-            override fun onQueryTextChange(newText: String?): Boolean {
-                newText?.let {
-                    carParkingAdapter.filter(it)
-                }
-                return false
-            }
-        })
     }
 
     private fun initView(){
@@ -75,26 +60,43 @@ class HomePageActivity : AppCompatActivity() {
                 data?.let { data ->
                     carNo = data.getStringExtra(Constants.CAR_NO) ?: Constants.EMPTY_STRING
                     phoneNumber = data.getStringExtra(Constants.PHONE_NUMBER) ?: Constants.EMPTY_STRING
-                    slotNo =  carParkingList.size +1
                     checkIn = System.currentTimeMillis()
                     val carParkingModel = CarParkingModel(carNo, phoneNumber, slotNo, checkIn)
-                    carParkingAdapter.addData(carParkingModel)
+                    add(carParkingModel)
                 }
             }
         }
 
-//        fun removeCar(car: CarParkingModel) {
-//        val index = carParkingList.indexOf(car)
-//        carParkingList.removeAt(index)
-//    }
+    private fun getNextAvailable() : Int {
+        carParkingList.forEachIndexed{ index, carParkingModel ->
+            if (carParkingModel.slotNumber != index + 1) {
+                return index + 1
+            }
+        }
+        return -1
+    }
 
-    //    private fun removeCar(slotNumber: String?) {
-//        val carToRemove = carParkingList.find { it.slotNumber == slotNumber }
-//        carToRemove?.let {
-//            carParkingList.remove(it)
-//            carParkingAdapter.notifyDataSetChanged()
-//        }
-//    }
+    private fun add(carParkingModel: CarParkingModel) {
+        val availableSlot = getNextAvailable()
+        if(availableSlot == -1){
+               carParkingModel.slotNumber = carParkingList.size + 1
+        }else{
+            carParkingModel.slotNumber = availableSlot
+        }
+        carParkingList.add(carParkingModel)
+        carParkingAdapter.setCarList(carParkingList)
+    }
 
+    override fun btnClicked(slotNumber: Int) {
+        removeCar(slotNumber)
+    }
+
+    private fun removeCar(slotNumber: Int) {
+        val carToRemove = carParkingList.find { it.slotNumber == slotNumber }
+        carToRemove?.let {
+            carParkingList.remove(it)
+            carParkingAdapter.setCarList(carParkingList)
+        }
+    }
 }
 

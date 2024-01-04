@@ -1,5 +1,6 @@
 package com.example.carparkingapplication
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +21,7 @@ class CarParkingDialogFragment : DialogFragment() {
     private lateinit var btnOk : AppCompatButton
     private lateinit var priceCalculation : AppCompatTextView
     private var checkIn : Long = 0
+    private var dialogListener: CarParkingDialogListener? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.activity_car_parking_dialog_fragment, container, false)
     }
@@ -36,17 +38,22 @@ class CarParkingDialogFragment : DialogFragment() {
     }
 
     private fun initView(){
-        val carNo = arguments?.getString(Constants.CAR_NO)
+
+        val carNo = arguments?.getString(Constants.CAR_NO,)
         val phoneNumber = arguments?.getString(Constants.USER_PHONE_NUMBER)
         val checkIn = arguments?.getLong(Constants.CHECK_IN)
-        val slotNumber =  arguments?.getString(Constants.SLOT_NO)
+        val slotNumber =  arguments?.getInt(Constants.SLOT_NO)
         tvCarNo.text = "${Constants.CAR_NUMBER}${carNo}"
         tvPhoneNumber.text = "${Constants.USER_PHONE_NUMBER}${phoneNumber}"
         tvSlotNo.text = "${Constants.CAR_SLOT_NO}${slotNumber}"
         val checkInDateTime = getCurrentDateTime(checkIn)
         tvCheckInTime.text = "${Constants.CHECK_IN_TIME}${checkInDateTime}"
         priceCalculation.text = "${Constants.CAR_PARKING_AMOUNT}${calculate().toString()}"
+
         btnOk.setOnClickListener{
+            if (slotNumber != null) {
+                dialogListener?.btnClicked(slotNumber)
+            }
             dismiss()
         }
     }
@@ -71,4 +78,16 @@ class CarParkingDialogFragment : DialogFragment() {
         val dateTime = SimpleDateFormat(Constants.DATE_PATTERN, Locale.getDefault())
         return dateTime.format(checkIn?.let { Date(it) })
     }
+
+    interface CarParkingDialogListener {
+        fun btnClicked(slotNumber: Int)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        dialogListener = context as CarParkingDialogListener
+    }
+
 }
+
+

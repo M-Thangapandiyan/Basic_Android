@@ -13,7 +13,6 @@ import java.util.Locale
 class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : RecyclerView.Adapter<CarParkingAdapter.ViewHolder>() {
 
     private var carParkingList: MutableList<CarParkingModel> = mutableListOf()
-    private var filteredList = mutableListOf<CarParkingModel>()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvCarNo: AppCompatTextView = itemView.findViewById(R.id.carNo)
@@ -49,23 +48,11 @@ class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : 
         return dateTime.format(Date(checkIn))
     }
 
-    fun addData(carParkingModel: CarParkingModel) {
-        carParkingList.add(carParkingModel)
-        filter(Constants.EMPTY_STRING)
+    fun setCarList(carParkingList : MutableList<CarParkingModel>){
+         this.carParkingList = carParkingList
+        notifyDataSetChanged()
     }
 
-     fun filter(query: String) {
-            filteredList.clear()
-            if (query.isEmpty()) {
-                filteredList.addAll(carParkingList)
-            } else {
-                val searchQuery = query.lowercase()
-                filteredList.addAll(carParkingList.filter { item ->
-                    item.carNo.lowercase().contains(searchQuery) || item.phoneNumber.lowercase().contains(searchQuery)
-                })
-            }
-            notifyDataSetChanged()
-        }
     }
 
 
