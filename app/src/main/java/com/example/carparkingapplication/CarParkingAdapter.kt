@@ -52,7 +52,6 @@ class CarParkingAdapter(private val carParkingInterface: CarParkingInterface) : 
          this.carParkingList = carParkingList
         notifyDataSetChanged()
     }
-
     }
 
 

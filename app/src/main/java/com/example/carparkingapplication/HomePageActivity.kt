@@ -14,7 +14,6 @@ class HomePageActivity : AppCompatActivity(), CarParkingDialogFragment.CarParkin
 
     private lateinit var carParkingAdapter: CarParkingAdapter
     private lateinit var btnSubmit: FloatingActionButton
-    private lateinit var search: SearchView
     private var carParkingList = mutableListOf<CarParkingModel>()
     private lateinit var carNo: String
     private lateinit var phoneNumber : String
@@ -77,13 +76,16 @@ class HomePageActivity : AppCompatActivity(), CarParkingDialogFragment.CarParkin
     }
 
     private fun add(carParkingModel: CarParkingModel) {
+
         val availableSlot = getNextAvailable()
         if(availableSlot == -1){
                carParkingModel.slotNumber = carParkingList.size + 1
-        }else{
+        }
+        else{
             carParkingModel.slotNumber = availableSlot
         }
-        carParkingList.add(carParkingModel)
+        val index = carParkingModel.slotNumber - 1
+        carParkingList.add(index,carParkingModel)
         carParkingAdapter.setCarList(carParkingList)
     }
 

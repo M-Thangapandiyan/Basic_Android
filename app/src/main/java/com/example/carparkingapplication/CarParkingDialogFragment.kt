@@ -9,7 +9,6 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.DialogFragment
 import java.text.SimpleDateFormat
-import java.util.Date
 import java.util.Locale
 
 class CarParkingDialogFragment : DialogFragment() {
@@ -38,7 +37,6 @@ class CarParkingDialogFragment : DialogFragment() {
     }
 
     private fun initView(){
-
         val carNo = arguments?.getString(Constants.CAR_NO,)
         val phoneNumber = arguments?.getString(Constants.USER_PHONE_NUMBER)
         val checkIn = arguments?.getLong(Constants.CHECK_IN)
@@ -46,15 +44,16 @@ class CarParkingDialogFragment : DialogFragment() {
         tvCarNo.text = "${Constants.CAR_NUMBER}${carNo}"
         tvPhoneNumber.text = "${Constants.USER_PHONE_NUMBER}${phoneNumber}"
         tvSlotNo.text = "${Constants.CAR_SLOT_NO}${slotNumber}"
+
+
         val checkInDateTime = getCurrentDateTime(checkIn)
         tvCheckInTime.text = "${Constants.CHECK_IN_TIME}${checkInDateTime}"
-        priceCalculation.text = "${Constants.CAR_PARKING_AMOUNT}${calculate().toString()}"
-
+        priceCalculation.text = "${Constants.CAR_PARKING_AMOUNT}${calculate()}"
         btnOk.setOnClickListener{
-            if (slotNumber != null) {
-                dialogListener?.btnClicked(slotNumber)
-            }
             dismiss()
+//            if (slotNumber != null) {
+            slotNumber?.let { it1 -> dialogListener?.btnClicked(it1) }
+//            }
         }
     }
 
@@ -76,18 +75,16 @@ class CarParkingDialogFragment : DialogFragment() {
     }
     private fun getCurrentDateTime(checkIn: Long?): String {
         val dateTime = SimpleDateFormat(Constants.DATE_PATTERN, Locale.getDefault())
-        return dateTime.format(checkIn?.let { Date(it) })
+        return dateTime.format(checkIn)
     }
 
     interface CarParkingDialogListener {
         fun btnClicked(slotNumber: Int)
     }
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         dialogListener = context as CarParkingDialogListener
     }
-
 }
 
 
