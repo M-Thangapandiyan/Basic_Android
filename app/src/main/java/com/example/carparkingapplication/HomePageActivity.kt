@@ -45,7 +45,7 @@ class HomePageActivity : AppCompatActivity(), CarParkingDialogFragment.CarParkin
             resultLauncher.launch(intent)
         }
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        carParkingAdapter = CarParkingAdapter(carParkingInterface)
+        carParkingAdapter = CarParkingAdapter(carParkingInterface,carParkingList)
         recyclerView.adapter = carParkingAdapter
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
@@ -76,17 +76,15 @@ class HomePageActivity : AppCompatActivity(), CarParkingDialogFragment.CarParkin
     }
 
     private fun add(carParkingModel: CarParkingModel) {
-
         val availableSlot = getNextAvailable()
         if(availableSlot == -1){
                carParkingModel.slotNumber = carParkingList.size + 1
-        }
-        else{
+        } else {
             carParkingModel.slotNumber = availableSlot
         }
         val index = carParkingModel.slotNumber - 1
         carParkingList.add(index,carParkingModel)
-        carParkingAdapter.setCarList(carParkingList)
+        carParkingAdapter.setCarList(index,Constants.ADD_DATA)
     }
 
     override fun btnClicked(slotNumber: Int) {
@@ -95,9 +93,10 @@ class HomePageActivity : AppCompatActivity(), CarParkingDialogFragment.CarParkin
 
     private fun removeCar(slotNumber: Int) {
         val carToRemove = carParkingList.find { it.slotNumber == slotNumber }
+        val index = slotNumber - 1
         carToRemove?.let {
             carParkingList.remove(it)
-            carParkingAdapter.setCarList(carParkingList)
+            carParkingAdapter.setCarList(index,Constants.REMOVE_DATA)
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.example.carparkingapplication
 
-    object Constants {
+import android.adservices.common.AdData
+
+object Constants {
         const val EMPTY_STRING = ""
         const val NULL = "null"
         const val DATE_PATTERN = "yyyy-MM-dd hh:mm:ss a"
@@ -17,4 +19,6 @@ package com.example.carparkingapplication
         const val PHONE_NUMBER_ERROR_MESSAGE="Please fill the phone number field with 10 numbers"
         const val  CAR_PARKING_DETAILS="carParkingDetails"
         const val  CAR_PARKING_AMOUNT=" Car Parking Amount ="
+        const val  ADD_DATA ="add"
+        const val  REMOVE_DATA ="remove"
     }

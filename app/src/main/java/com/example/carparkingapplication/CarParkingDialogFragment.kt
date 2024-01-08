@@ -44,16 +44,14 @@ class CarParkingDialogFragment : DialogFragment() {
         tvCarNo.text = "${Constants.CAR_NUMBER}${carNo}"
         tvPhoneNumber.text = "${Constants.USER_PHONE_NUMBER}${phoneNumber}"
         tvSlotNo.text = "${Constants.CAR_SLOT_NO}${slotNumber}"
-
-
         val checkInDateTime = getCurrentDateTime(checkIn)
         tvCheckInTime.text = "${Constants.CHECK_IN_TIME}${checkInDateTime}"
         priceCalculation.text = "${Constants.CAR_PARKING_AMOUNT}${calculate()}"
         btnOk.setOnClickListener{
             dismiss()
-//            if (slotNumber != null) {
+            if (slotNumber != null) {
             slotNumber?.let { it1 -> dialogListener?.btnClicked(it1) }
-//            }
+            }
         }
     }
 
