@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.constraintbasics"
+    namespace = "com.example.carparkingapplication"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.constraintbasics"
+        applicationId = "com.example.carparkingapplication"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
